@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/config/keymaps.lua
+
 -- Definir líderes (ya lo tienes, pero lo reafirmamos)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -34,9 +36,9 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", "Abrir/Cerrar explorador")
 map("n", "<leader>E", ":NvimTreeFindFile<CR>", "Mostrar archivo actual en explorador")
 
 -- ============================================================
--- 🔍  BÚSQUEDA Y ARCHIVOS (si añades Telescope)
+-- 🔍  BÚSQUEDA Y ARCHIVOS (Telescope - opcional)
 -- ============================================================
--- (Descomenta si instalas Telescope)
+-- Descomenta si instalas Telescope
 -- map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", "Buscar archivos")
 -- map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", "Buscar texto")
 -- map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", "Listar buffers")
@@ -57,13 +59,12 @@ map("n", "<leader>f", vim.lsp.buf.format, "Formatear buffer (LSP)")
 -- Diagnósticos
 map("n", "[d", vim.diagnostic.goto_prev, "Ir al diagnóstico anterior")
 map("n", "]d", vim.diagnostic.goto_next, "Ir al diagnóstico siguiente")
-map("n", "<leader>e", vim.diagnostic.open_float, "Mostrar diagnóstico en ventana flotante")
-map("n", "<leader>q", vim.diagnostic.setloclist, "Enviar diagnósticos a lista local")
+map("n", "<leader>ld", vim.diagnostic.open_float, "Mostrar diagnóstico en ventana flotante") -- cambiado de <leader>e a <leader>ld
+map("n", "<leader>lq", vim.diagnostic.setloclist, "Enviar diagnósticos a lista local") -- cambiado de <leader>q a <leader>lq para mantener contexto LSP
 
 -- ============================================================
 -- 🎨  FORMATEO (conform.nvim)
 -- ============================================================
--- El atajo <leader>f ya está definido en formatting.lua, pero lo reafirmamos
 map({ "n", "v" }, "<leader>F", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, "Formatear buffer/selección (conform)")
@@ -73,7 +74,6 @@ end, "Formatear buffer/selección (conform)")
 -- ============================================================
 -- Los atajos de cmp se definen dentro de su configuración (cmp.lua)
 -- Normalmente se usan <Tab>, <S-Tab>, <CR>, <C-Space>, etc.
--- No es necesario repetirlos aquí.
 
 -- ============================================================
 -- 🪟  VENTANAS Y PESTAÑAS
@@ -89,6 +89,14 @@ map("n", "<leader>tn", ":tabn<CR>", "Ir a pestaña siguiente")
 map("n", "<leader>tp", ":tabp<CR>", "Ir a pestaña anterior")
 
 -- ============================================================
--- 🧰  PLUGINS ADICIONALES (opcional)
+-- 🧰  PLUGINS ADICIONALES
 -- ============================================================
--- Si instalas gitsigns, telescope, etc., añade aquí sus atajos.
+-- lazygit.nvim ya define su propio atajo <leader>gg en su archivo de plugin.
+-- Si prefieres definirlo aquí, puedes hacerlo (pero asegúrate de no duplicarlo).
+-- map("n", "<leader>gg", "<cmd>LazyGit<CR>", "Abrir LazyGit")
+
+-- Gitsigns (si se instala)
+-- map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", "Stage hunk")
+-- map("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", "Reset hunk")
+-- map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", "Preview hunk")
+-- map("n", "<leader>hb", ":Gitsigns blame_line<CR>", "Blame line")
