@@ -100,3 +100,6 @@ map("n", "<leader>tp", ":tabp<CR>", "Ir a pestaña anterior")
 -- map("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", "Reset hunk")
 -- map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", "Preview hunk")
 -- map("n", "<leader>hb", ":Gitsigns blame_line<CR>", "Blame line")
+--
+---- oil.nvim: Abrir el directorio padre del archivo actual (estilo vim-vinegar)
+map("n", "-", "<CMD>Oil<CR>", "Abrir directorio padre")
