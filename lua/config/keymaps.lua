@@ -103,3 +103,8 @@ map("n", "<leader>tp", ":tabp<CR>", "Ir a pestaña anterior")
 --
 ---- oil.nvim: Abrir el directorio padre del archivo actual (estilo vim-vinegar)
 map("n", "-", "<CMD>Oil<CR>", "Abrir directorio padre")
+
+--bufferline
+map("n", "<A-,>", "<cmd>BufferLineCyclePrev<CR>", "Pestaña anterior")
+map("n", "<A-.>", "<cmd>BufferLineCycleNext<CR>", "Pestaña siguiente")
+map("n", "<A-w>", "<cmd>bd<CR>", "Cerrar pestaña actual")

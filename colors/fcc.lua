@@ -63,6 +63,10 @@ local highlights = {
 	StatusLine = { fg = colors.gray00, bg = colors.gray80 },
 	StatusLineNC = { fg = colors.gray75, bg = colors.gray85 },
 
+	--breadcrumb
+	WinBar = { fg = colors.gray00, bg = colors.gray85 },
+	WinBarNC = { fg = colors.gray75, bg = colors.gray85 },
+
 	-- Ventanas flotantes y menús
 	Pmenu = { fg = colors.gray00, bg = colors.gray85 },
 	PmenuSel = { fg = colors.gray90, bg = colors.purple },
@@ -134,6 +138,63 @@ local highlights = {
 	-- Tree-sitter (se mapean automáticamente desde los grupos estándar en Neovim 0.10+)
 	-- pero puedes añadir grupos específicos si lo deseas.
 }
+
+-- Breadcrumbs (nvim-navic)
+local navic_colors = {
+	-- Texto genérico del breadcrumb
+	NavicText = { fg = colors.gray00, bg = colors.gray85 },
+	-- Separador (la flechita ">")
+	NavicSeparator = { fg = colors.gray75 },
+	-- Íconos y texto de cada tipo de símbolo
+	NavicIconsFile = { fg = colors.blue },
+	NavicIconsModule = { fg = colors.purple },
+	NavicIconsNamespace = { fg = colors.purple },
+	NavicIconsPackage = { fg = colors.purple },
+	NavicIconsClass = { fg = colors.yellow },
+	NavicIconsMethod = { fg = colors.blue },
+	NavicIconsProperty = { fg = colors.blue },
+	NavicIconsField = { fg = colors.blue },
+	NavicIconsConstructor = { fg = colors.yellow },
+	NavicIconsEnum = { fg = colors.yellow },
+	NavicIconsInterface = { fg = colors.yellow },
+	NavicIconsFunction = { fg = colors.blue },
+	NavicIconsVariable = { fg = colors.light_green },
+	NavicIconsConstant = { fg = colors.yellow },
+	NavicIconsString = { fg = colors.light_green },
+	NavicIconsNumber = { fg = colors.yellow },
+	NavicIconsBoolean = { fg = colors.yellow },
+	NavicIconsArray = { fg = colors.yellow },
+	NavicIconsObject = { fg = colors.yellow },
+	NavicIconsKey = { fg = colors.blue },
+	NavicIconsNull = { fg = colors.gray75 },
+	NavicIconsEnumMember = { fg = colors.light_green },
+	NavicIconsStruct = { fg = colors.yellow },
+	NavicIconsEvent = { fg = colors.yellow },
+	NavicIconsOperator = { fg = colors.gray00 },
+	NavicIconsTypeParameter = { fg = colors.light_green },
+}
+
+-- Mezclar con la tabla de highlights existente
+for group, spec in pairs(navic_colors) do
+	highlights[group] = spec
+end
+
+-- Grupos específicos para bufferline (sobrescriben TabLine)
+local bufferline_colors = {
+	BufferLineBackground = { fg = colors.gray75, bg = colors.gray90 },
+	--	BufferLineBufferSelected = { fg = colors.gray00, bg = colors.gray80, bold = true },
+	BufferLineBufferVisible = { fg = colors.gray00, bg = colors.gray85 },
+	--BufferLineTabSelected = { fg = colors.gray00, bg = colors.gray80, bold = true },
+	BufferLineTab = { fg = colors.gray75, bg = colors.gray90 },
+	BufferLineFill = { bg = colors.gray90 },
+	BufferLineSeparator = { fg = colors.gray75, bg = colors.gray90 },
+	BufferLineCloseButton = { fg = colors.gray75, bg = colors.gray90 },
+	BufferLineCloseButtonSelected = { fg = colors.gray00, bg = colors.gray80 },
+}
+
+for group, spec in pairs(bufferline_colors) do
+	vim.api.nvim_set_hl(0, group, spec)
+end
 
 -- Aplicar los colores
 for group, spec in pairs(highlights) do
