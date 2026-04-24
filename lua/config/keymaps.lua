@@ -108,3 +108,9 @@ map("n", "-", "<CMD>Oil<CR>", "Abrir directorio padre")
 map("n", "<A-,>", "<cmd>BufferLineCyclePrev<CR>", "Pestaña anterior")
 map("n", "<A-.>", "<cmd>BufferLineCycleNext<CR>", "Pestaña siguiente")
 map("n", "<A-w>", "<cmd>bd<CR>", "Cerrar pestaña actual")
+
+-- Mover la línea actual hacia abajo (Alt + j)
+map("n", "<A-j>", ":m .+1<CR>==", "Mover línea abajo")
+
+-- Mover la línea actual hacia arriba (Alt + k)
+map("n", "<A-k>", ":m .-2<CR>==", "Mover línea arriba")
