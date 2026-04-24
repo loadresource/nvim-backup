@@ -9,8 +9,9 @@ return {
 					mode = "buffers", -- o "buffers" si prefieres que se muestren todos
 					numbers = "none", -- sin números
 					indicator = {
-						style = "underline", -- línea indicadora bajo la pestaña activa
+						--	style = "underline", -- línea indicadora bajo la pestaña activa
 					},
+					--separator_style = "slant",
 					separator = false,
 					show_close_icon = true,
 					show_buffer_close_icons = true,
