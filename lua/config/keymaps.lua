@@ -114,3 +114,8 @@ map("n", "<A-j>", ":m .+1<CR>==", "Mover línea abajo")
 
 -- Mover la línea actual hacia arriba (Alt + k)
 map("n", "<A-k>", ":m .-2<CR>==", "Mover línea arriba")
+-- Duplicar línea hacia abajo (Shift + Alt + j)
+map("n", "<A-S-j>", ":t .<CR>", "Duplicar línea abajo")
+
+-- Duplicar línea hacia arriba (Shift + Alt + k)
+map("n", "<A-S-k>", ":t -1<CR>", "Duplicar línea arriba")
