@@ -119,3 +119,8 @@ map("n", "<A-S-j>", ":t .<CR>", "Duplicar línea abajo")
 
 -- Duplicar línea hacia arriba (Shift + Alt + k)
 map("n", "<A-S-k>", ":t -1<CR>", "Duplicar línea arriba")
+-- Duplicar selección hacia abajo (Shift + Alt + j)
+map("v", "<A-S-j>", ":t '><CR>gv=gv", "Duplicar selección abajo")
+
+-- Duplicar selección hacia arriba (Shift + Alt + k)
+map("v", "<A-S-k>", ":t '<-1<CR>gv=gv", "Duplicar selección arriba")
